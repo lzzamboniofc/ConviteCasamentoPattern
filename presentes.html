@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F4F0E8">
+  <meta name="description" content="Lista de presentes do casamento">
+  <title>Lista de presentes</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cinzel:wght@400;500;600&family=Cormorant:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Infant:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:wght@400;500;600&family=Great+Vibes&family=Imperial+Script&family=Inter:wght@400;500;600&family=Italiana&family=Italianno&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;500;600&family=Manrope:wght@400;500;600&family=Marcellus&family=Montserrat:wght@400;500;600&family=Monsieur+La+Doulaise&family=MonteCarlo&family=Mrs+Saint+Delafield&family=Parisienne&family=Petit+Formal+Script&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&family=Prata&family=Roboto:wght@300;400;500;700&family=Rochester&family=Sacramento&family=Source+Sans+3:wght@400;500;600&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/presents.css">
+</head>
+<body>
+  <noscript><div class="noscript">Ative o JavaScript para visualizar a lista de presentes.</div></noscript>
+
+  <div class="gift-progress" aria-hidden="true"><span id="giftProgressBar"></span></div>
+
+  <header class="gift-header" id="giftHeader">
+    <a class="gift-brand" href="index.html#inicio" aria-label="Voltar ao convite">
+      <span class="gift-brand__monogram" data-wedding="couple.initials">H · R</span>
+      <span class="gift-brand__text">
+        <small>Lista de presentes</small>
+        <strong><span data-wedding="couple.firstName">Helena</span> & <span data-wedding="couple.secondName">Rafael</span></strong>
+      </span>
+    </a>
+
+    <button class="gift-menu-toggle" id="giftMenuToggle" type="button" aria-expanded="false" aria-controls="giftNav">
+      <span></span><span></span><span class="sr-only">Abrir menu</span>
+    </button>
+
+    <nav class="gift-nav" id="giftNav" aria-label="Navegação da lista de presentes">
+      <a href="#lista">Presentes</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a class="gift-nav__back" href="index.html#presentes">Voltar ao convite</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gift-hero" id="inicio">
+      <div class="gift-hero__ornament gift-hero__ornament--one" aria-hidden="true"></div>
+      <div class="gift-hero__ornament gift-hero__ornament--two" aria-hidden="true"></div>
+      <div class="gift-shell gift-hero__inner">
+        <a class="back-link" href="index.html#presentes"><span aria-hidden="true">←</span> Voltar ao convite</a>
+        <p class="gift-eyebrow" id="giftEyebrow">Um carinho, se você quiser</p>
+        <h1 id="giftPageTitle">Lista de presentes</h1>
+        <p class="gift-hero__lead" id="giftIntro"></p>
+        <div class="gift-hero__meta">
+          <span><b id="giftCount">15</b> ideias de presente</span>
+          <i aria-hidden="true"></i>
+          <span data-wedding="wedding.longDate">14 de novembro de 2027</span>
+        </div>
+        <div class="gift-demo-notice" id="giftNotice" role="note"></div>
+      </div>
+    </section>
+
+    <section class="gift-list-section" id="lista">
+      <div class="gift-shell">
+        <div class="gift-filter-wrap">
+          <div class="gift-filter-copy">
+            <span class="gift-kicker">Escolha do seu jeito</span>
+            <h2>Um gesto simbólico,<br>uma lembrança para nós.</h2>
+          </div>
+          <div class="gift-filters" id="giftFilters" aria-label="Filtrar presentes"></div>
+        </div>
+
+        <div class="gift-grid" id="giftGrid" aria-live="polite"></div>
+        <p class="gift-empty" id="giftEmpty" hidden>Nenhum presente encontrado nesta categoria.</p>
+      </div>
+    </section>
+
+    <section class="gift-how" id="como-funciona">
+      <div class="gift-shell gift-how__grid">
+        <div>
+          <span class="gift-kicker">Como funciona</span>
+          <h2>Escolheu um presente?<br>O próximo passo é simples.</h2>
+        </div>
+        <ol class="gift-steps">
+          <li><span>01</span><div><strong>Escolha uma cota</strong><p>Os itens são simbólicos. Você escolhe pelo significado ou pelo valor.</p></div></li>
+          <li><span>02</span><div><strong>Abra o QR Code</strong><p>Toque em “Presentear” para visualizar o QR associado àquele valor.</p></div></li>
+          <li><span>03</span><div><strong>Faça a contribuição</strong><p>Na versão real, o QR será substituído pelo PIX dos noivos com o valor correto.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="honeymoon-explainer" id="sobre-lua-de-mel">
+      <div class="gift-shell honeymoon-explainer__inner">
+        <span class="gift-kicker">Cotas de lua de mel</span>
+        <h2>Presentes que viram experiências.</h2>
+        <p>Em vez de comprar um objeto físico, o convidado contribui com uma experiência da viagem: uma diária, um jantar, um passeio ou simplesmente uma cota para os planos dos noivos.</p>
+        <button class="text-action" type="button" data-filter-jump="lua-de-mel">Ver somente lua de mel <span>→</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="gift-footer">
+    <div class="gift-shell gift-footer__inner">
+      <div class="gift-footer__seal" data-wedding="couple.initials">H · R</div>
+      <p><span data-wedding="couple.firstName">Helena</span> & <span data-wedding="couple.secondName">Rafael</span></p>
+      <a href="index.html#presentes">Voltar ao convite</a>
+    </div>
+  </footer>
+
+  <a class="gift-top" id="giftBackToTop" href="#inicio" aria-label="Voltar ao topo">↑</a>
+
+  <div class="gift-modal" id="giftModal" aria-hidden="true">
+    <button class="gift-modal__backdrop" type="button" data-gift-close aria-label="Fechar"></button>
+    <div class="gift-modal__panel" role="dialog" aria-modal="true" aria-labelledby="giftModalTitle">
+      <button class="gift-modal__close" type="button" data-gift-close aria-label="Fechar">×</button>
+      <div class="gift-modal__visual">
+        <img id="giftModalPhoto" src="" alt="">
+      </div>
+      <div class="gift-modal__content">
+        <span class="gift-modal__category" id="giftModalCategory"></span>
+        <h2 id="giftModalTitle"></h2>
+        <p class="gift-modal__description" id="giftModalDescription"></p>
+        <strong class="gift-modal__price" id="giftModalPrice"></strong>
+        <div class="gift-qr-box">
+          <span class="gift-qr-box__label">QR Code do presente</span>
+          <img id="giftModalQr" src="" alt="QR Code do presente selecionado">
+        </div>
+        <p class="gift-modal__note" id="giftModalNote"></p>
+        <button class="gift-copy-button" id="giftCopyPix" type="button" hidden>Copiar PIX copia e cola</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/gifts-config.js"></script>
+  <script src="js/gifts-page.js" defer></script>
+</body>
+</html>

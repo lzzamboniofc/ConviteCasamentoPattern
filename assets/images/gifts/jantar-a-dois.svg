@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-label="Espaço reservado para foto de Jantar romântico a dois">
+<rect width="900" height="700" fill="#e9e2d6"/>
+<path d="M70 580C230 410 315 490 430 330S690 190 830 95" fill="none" stroke="#a9957d" stroke-width="2" opacity=".75"/>
+<circle cx="710" cy="180" r="130" fill="none" stroke="#b9aa95" stroke-width="2" opacity=".55"/>
+<circle cx="710" cy="180" r="86" fill="none" stroke="#b9aa95" stroke-width="1" opacity=".45"/>
+<text x="70" y="90" fill="#74695f" font-family="Arial,sans-serif" font-size="18" letter-spacing="5">EXPERIÊNCIA</text>
+<text x="70" y="510" fill="#302b26" font-family="Georgia,serif" font-size="45">Jantar romântico a dois</text>
+<text x="70" y="555" fill="#74695f" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">SUBSTITUA ESTE SVG PELA FOTO REAL</text>
+<text x="70" y="625" fill="#302b26" font-family="Georgia,serif" font-size="28">R$ 219,00</text>
+</svg>

@@ -1,0 +1,15 @@
+FONTES LOCAIS OPCIONAIS
+
+New Icon Script é uma fonte comercial e NÃO está incluída neste template.
+
+Se você tiver uma licença webfont válida, exporte/obtenha o arquivo WOFF2 permitido pela licença e coloque aqui com o nome:
+
+  new-icon-script.woff2
+
+Depois use em js/config.js:
+
+  heroFontPreset: "newIcon"
+
+Se o arquivo não existir, o preset usa Pinyon Script como fallback.
+
+Não redistribua arquivos de fonte comercial sem autorização da licença.

@@ -1,0 +1,52 @@
+/*
+  NEW ICON SCRIPT (opcional / comercial)
+  ------------------------------------------------------------
+  O arquivo da fonte NÃO acompanha este template.
+  Se você tiver uma licença webfont, coloque o arquivo em:
+  assets/fonts/new-icon-script.woff2
+  O preset `newIcon` usa Pinyon Script automaticamente como fallback.
+*/
+@font-face {
+  font-family: "New Icon Script";
+  src: url("../assets/fonts/new-icon-script.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /*
+    Fallbacks visuais.
+    Na prática, tema e fontes são escolhidos em js/config.js.
+    Veja: themePreset e fontPreset.
+  */
+  --paper: #f4f0e8;
+  --paper-2: #ede7dc;
+  --ink: #20221e;
+  --ink-soft: #6d6d64;
+  --accent: #66725b;
+  --accent-dark: #3c4938;
+  --accent-warm: #b38f72;
+  --line: rgba(32, 34, 30, .18);
+  --white: #fffdf8;
+  --black: #151713;
+
+  /* Tipografia do conteúdo geral. */
+  --font-display: "Bodoni Moda", Georgia, serif;
+  --font-body: "Manrope", Arial, sans-serif;
+  --font-ui: "DM Sans", Arial, sans-serif;
+
+  /* Tipografia independente da abertura + primeira tela (hero). */
+  --font-hero-display: "Petit Formal Script", cursive;
+  --font-hero-body: "EB Garamond", Georgia, serif;
+  --font-hero-ui: "Manrope", Arial, sans-serif;
+
+  /* Mobile-first: os valores base já foram pensados para celular. */
+  --container: 1240px;
+  --gutter: 20px;
+  --section-y: 78px;
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --shadow-soft: 0 24px 70px rgba(25, 29, 22, .10);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}

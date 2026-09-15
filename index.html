@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F4F0E8">
+  <meta name="description" content="Convite de casamento digital">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nosso casamento">
+  <meta property="og:description" content="Você é nosso convidado para celebrar esse dia conosco.">
+  <meta property="og:image" content="assets/images/hero.svg">
+  <title>Nosso casamento</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fontes disponíveis nos presets de js/config.js. O navegador baixa apenas as usadas. -->
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cinzel:wght@400;500;600&family=Cormorant:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Infant:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:wght@400;500;600&family=Great+Vibes&family=Imperial+Script&family=Inter:wght@400;500;600&family=Italiana&family=Italianno&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;500;600&family=Manrope:wght@400;500;600&family=Marcellus&family=Montserrat:wght@400;500;600&family=Monsieur+La+Doulaise&family=MonteCarlo&family=Mrs+Saint+Delafield&family=Parisienne&family=Petit+Formal+Script&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&family=Prata&family=Roboto:wght@300;400;500;700&family=Rochester&family=Sacramento&family=Source+Sans+3:wght@400;500;600&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="is-locked">
+  <noscript>
+    <div class="noscript">Este convite precisa de JavaScript habilitado para exibir os dados do casamento.</div>
+  </noscript>
+
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <div class="opening" id="opening" aria-label="Abertura do convite">
+    <div class="opening__reveal" aria-hidden="true">
+      <img id="openingRevealImage" src="assets/images/hero.svg" alt="">
+      <div class="opening__reveal-veil"></div>
+    </div>
+    <div class="opening__grain" aria-hidden="true"></div>
+    <div class="opening__edition" aria-hidden="true">INVITATION · 001</div>
+    <div class="opening__inner">
+      <div class="opening__topline">
+        <p class="opening__eyebrow" data-text="opening.eyebrow"></p>
+        <span class="opening__date" data-text="wedding.shortDate"></span>
+      </div>
+
+      <div class="opening__names" aria-label="Nomes dos noivos">
+        <span data-text="couple.firstName"></span>
+        <i>&</i>
+        <span data-text="couple.secondName"></span>
+      </div>
+
+      <div class="opening__rule" aria-hidden="true"><span></span></div>
+
+      <div class="opening__bottom">
+        <div>
+          <p class="opening__guest" id="personalGreeting"></p>
+          <p class="opening__hint" data-text="opening.hint"></p>
+        </div>
+        <button class="open-button" id="openInvitation" type="button" aria-label="Abrir convite">
+          <span class="open-button__label open-button__label--desktop" data-text="opening.buttonLabel">Abrir convite</span>
+          <span class="open-button__label open-button__label--mobile" data-text="opening.mobileDragLabel">Deslize para abrir</span>
+          <span class="open-button__track" aria-hidden="true"><span></span></span>
+          <span class="open-button__handle" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#inicio" aria-label="Voltar ao início">
+      <span class="brand__monogram" data-text="couple.initials"></span>
+      <span class="brand__date" data-text="wedding.shortDate"></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span>
+      <span class="sr-only">Abrir menu</span>
+    </button>
+
+    <nav class="nav" id="mainNav" aria-label="Navegação principal">
+      <a href="#historia">Nossa história</a>
+      <a href="#detalhes">O grande dia</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#rsvp" class="nav__cta">Confirmar presença</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-label="Início do convite">
+      <div class="hero__media" aria-hidden="true">
+        <img id="heroImage" src="assets/images/hero.svg" alt="" fetchpriority="high">
+        <div class="hero__veil"></div>
+      </div>
+
+      <div class="hero__ornament hero__ornament--left" aria-hidden="true"></div>
+      <div class="hero__ornament hero__ornament--right" aria-hidden="true"></div>
+
+      <div class="hero__topline reveal">
+        <span data-text="hero.kicker"></span>
+        <span class="hero__line"></span>
+        <span data-text="wedding.city"></span>
+      </div>
+
+      <div class="hero__folio" aria-hidden="true">
+        <span>EST.</span>
+        <strong data-text="wedding.day"></strong>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__pretitle reveal" data-text="hero.pretitle"></p>
+        <h1 class="hero__names reveal">
+          <span data-text="couple.firstName"></span>
+          <i>&</i>
+          <span data-text="couple.secondName"></span>
+        </h1>
+        <div class="hero__meta reveal">
+          <span data-text="wedding.longDate"></span>
+          <b aria-hidden="true">•</b>
+          <span data-text="wedding.time"></span>
+        </div>
+      </div>
+
+      <div class="hero__bottom reveal">
+        <a class="hero__rsvp" href="#rsvp">
+          <span>RSVP</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
+        </a>
+        <a class="scroll-label" href="#boas-vindas">Role para descobrir <span>↓</span></a>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marqueeTrack"></div>
+    </div>
+
+    <section class="welcome section" id="boas-vindas">
+      <div class="container welcome__grid">
+        <div class="section-index reveal">01 — O convite</div>
+        <div class="welcome__copy">
+          <p class="eyebrow reveal" data-text="welcome.eyebrow"></p>
+          <h2 class="display-title reveal" data-text="welcome.title"></h2>
+          <p class="lead reveal" data-text="welcome.text"></p>
+          <div class="signature reveal" data-text="couple.signature"></div>
+        </div>
+        <aside class="welcome__aside reveal">
+          <span class="mini-label">Falta pouco</span>
+          <div class="countdown" id="countdown" aria-label="Contagem regressiva">
+            <div><strong data-count="days">00</strong><span>dias</span></div>
+            <div><strong data-count="hours">00</strong><span>horas</span></div>
+            <div><strong data-count="minutes">00</strong><span>min</span></div>
+            <div><strong data-count="seconds">00</strong><span>seg</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="story section" id="historia">
+      <div class="container story__grid">
+        <div class="story__media reveal" data-speed="0.08">
+          <img id="storyImage" src="assets/images/story.svg" alt="Foto do casal" loading="lazy">
+          <span class="story__year" data-text="story.year"></span>
+          <span class="story__caption" data-text="story.imageCaption"></span>
+        </div>
+        <div class="story__copy">
+          <div class="section-index reveal">02 — Nossa história</div>
+          <p class="eyebrow reveal" data-text="story.eyebrow"></p>
+          <h2 class="display-title reveal" data-text="story.title"></h2>
+          <div class="story__body reveal" id="storyParagraphs"></div>
+          <blockquote class="quote reveal" data-text="story.quote"></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="date-break" aria-label="Data do casamento">
+      <div class="date-break__media" aria-hidden="true">
+        <img id="dateBreakImage" src="assets/images/date-break.svg" alt="" loading="lazy">
+      </div>
+      <div class="date-break__overlay"></div>
+      <div class="date-break__content reveal">
+        <span data-text="wedding.weekday"></span>
+        <strong data-text="wedding.day"></strong>
+        <span data-text="wedding.monthYear"></span>
+      </div>
+    </section>
+
+    <section class="details section" id="detalhes">
+      <div class="container">
+        <div class="details__heading">
+          <div>
+            <div class="section-index reveal">03 — O grande dia</div>
+            <p class="eyebrow reveal">Onde & quando</p>
+          </div>
+          <h2 class="display-title reveal">Tudo o que você precisa<br>para celebrar conosco.</h2>
+        </div>
+        <div class="event-grid" id="eventGrid"></div>
+      </div>
+    </section>
+
+    <section class="schedule section" id="programacao">
+      <div class="container">
+        <div class="schedule__head reveal">
+          <div>
+            <div class="section-index">04 — Programação</div>
+            <p class="eyebrow">O roteiro do dia</p>
+          </div>
+          <p class="schedule__note" data-text="schedule.note"></p>
+        </div>
+        <div class="timeline" id="timeline"></div>
+        <div class="schedule__actions reveal">
+          <button class="text-button" id="calendarButton" type="button">
+            <span>Adicionar ao calendário</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v3M18 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"/></svg>
+          </button>
+          <!-- <button class="text-button" id="shareButton" type="button">
+            <span>Compartilhar convite</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M13 7l5 5-5 5M5 5h5M5 19h5M5 5v14"/></svg>
+          </button> -->
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery section" id="galeria">
+      <div class="container">
+        <div class="gallery__head">
+          <div>
+            <div class="section-index reveal">05 — Memórias</div>
+            <p class="eyebrow reveal">Alguns capítulos</p>
+          </div>
+          <h2 class="display-title reveal" data-text="gallery.title"></h2>
+        </div>
+        <div class="gallery__grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <section class="dress section" id="dress-code">
+      <div class="container dress__grid">
+        <div class="dress__copy">
+          <div class="section-index reveal">06 — Dress code</div>
+          <p class="eyebrow reveal" data-text="dressCode.eyebrow"></p>
+          <h2 class="display-title reveal" data-text="dressCode.title"></h2>
+          <p class="lead reveal" data-text="dressCode.text"></p>
+          <p class="dress__note reveal" data-text="dressCode.note"></p>
+          <div class="palette reveal" id="dressPalette" aria-label="Sugestão de paleta"></div>
+        </div>
+        <div class="dress__media reveal">
+          <img id="dressImage" src="assets/images/dress-code.svg" alt="Referência visual para o dress code" loading="lazy">
+          <span class="dress__stamp">DRESS<br>CODE</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="guest-info section" id="informacoes">
+      <div class="container">
+        <div class="guest-info__head reveal">
+          <div class="section-index">07 — Para você se organizar</div>
+          <h2 class="display-title">Pequenos detalhes,<br>uma experiência tranquila.</h2>
+        </div>
+        <div class="info-grid" id="infoGrid"></div>
+      </div>
+    </section>
+
+    <section class="gifts section" id="presentes">
+      <div class="gifts__art" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="container gifts__inner">
+        <div class="section-index reveal">08 — Presentes</div>
+        <p class="eyebrow reveal" data-text="gifts.eyebrow"></p>
+        <h2 class="display-title reveal" data-text="gifts.title"></h2>
+        <p class="lead reveal" data-text="gifts.text"></p>
+        <div class="gift-links reveal" id="giftLinks"></div>
+      </div>
+    </section>
+
+    <section class="faq section" id="duvidas">
+      <div class="container faq__grid">
+        <div class="faq__title">
+          <div class="section-index reveal">09 — Dúvidas</div>
+          <p class="eyebrow reveal">Perguntas frequentes</p>
+          <h2 class="display-title reveal">Antes do<br>grande dia.</h2>
+        </div>
+        <div class="accordion" id="faqList"></div>
+      </div>
+    </section>
+
+    <section class="rsvp section" id="rsvp">
+      <div class="rsvp__side rsvp__side--photo" aria-hidden="true">
+        <img id="rsvpImage" src="assets/images/rsvp.svg" alt="" loading="lazy">
+      </div>
+      <div class="rsvp__side rsvp__side--form">
+        <div class="rsvp__form-wrap reveal">
+          <div class="section-index">10 — RSVP</div>
+          <p class="eyebrow" data-text="rsvp.eyebrow"></p>
+          <h2 class="display-title" data-text="rsvp.title"></h2>
+          <p class="rsvp__intro" data-text="rsvp.text"></p>
+          <p class="rsvp__deadline"><span>Confirme até</span> <strong data-text="rsvp.deadline"></strong></p>
+
+          <form class="rsvp-form" id="rsvpForm">
+            <label>
+              <span>Nome completo</span>
+              <input type="text" name="nome" autocomplete="name" required placeholder="Seu nome">
+            </label>
+            <div class="form-row">
+              <label>
+                <span>Você vai?</span>
+                <select name="presenca" required>
+                  <option value="">Selecione</option>
+                  <option value="Sim, estarei presente">Sim, estarei presente</option>
+                  <option value="Infelizmente não poderei ir">Infelizmente não poderei ir</option>
+                </select>
+              </label>
+              <label>
+                <span>Nº de pessoas</span>
+                <input type="number" name="convidados" min="1" max="10" inputmode="numeric" value="1">
+              </label>
+            </div>
+            <label data-rsvp-extra="meal">
+              <span>Preferência / observação alimentar</span>
+              <input type="text" name="alimentacao" placeholder="Opcional">
+            </label>
+            <label>
+              <span>Mensagem para os noivos</span>
+              <textarea name="mensagem" rows="3" placeholder="Escreva algo especial..."></textarea>
+            </label>
+            <button class="primary-button" type="submit">
+              <span data-text="rsvp.buttonLabel">Confirmar presença</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
+            </button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__monogram" data-text="couple.initials"></div>
+      <div class="footer__names">
+        <span data-text="couple.firstName"></span>
+        <i>&</i>
+        <span data-text="couple.secondName"></span>
+      </div>
+      <p>Esperamos você para celebrar este capítulo com a gente.</p>
+    </div>
+    <div class="footer__bottom">
+      <span data-text="wedding.longDate"></span>
+      <span class="footer__dot">•</span>
+      <span data-text="wedding.city"></span>
+      <a href="#inicio">voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Galeria ampliada">
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Fechar galeria">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" type="button" aria-label="Foto anterior">←</button>
+    <figure>
+      <img id="lightboxImage" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" type="button" aria-label="Próxima foto">→</button>
+  </div>
+
+  <button class="music-button" id="musicButton" type="button" aria-label="Reproduzir música" hidden>
+    <span class="music-button__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="music-button__label">Música</span>
+  </button>
+  <audio id="backgroundMusic" preload="none"></audio>
+
+  <div class="quick-actions" id="quickActions" aria-label="Atalhos do convite">
+    <button class="quick-actions__sections" id="sectionNavButton" type="button" aria-expanded="false" aria-controls="sectionSheet">
+      <span class="quick-actions__icon" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Seções</span>
+    </button>
+    <a class="quick-actions__top" id="backToTop" href="#inicio" aria-label="Voltar ao topo">↑</a>
+  </div>
+
+  <div class="section-sheet" id="sectionSheet" aria-hidden="true">
+    <button class="section-sheet__backdrop" type="button" data-sheet-close aria-label="Fechar menu de seções"></button>
+    <div class="section-sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sectionSheetTitle">
+      <div class="section-sheet__head">
+        <div>
+          <span class="mini-label">Navegação rápida</span>
+          <h2 id="sectionSheetTitle">Ir para uma seção</h2>
+        </div>
+        <button class="section-sheet__close" type="button" data-sheet-close aria-label="Fechar">×</button>
+      </div>
+      <nav class="section-sheet__nav" aria-label="Seções do convite">
+        <a href="#inicio"><span>01</span>Início</a>
+        <a href="#boas-vindas"><span>02</span>O convite</a>
+        <a href="#historia"><span>03</span>Nossa história</a>
+        <a href="#detalhes"><span>04</span>O grande dia</a>
+        <a href="#programacao"><span>05</span>Programação</a>
+        <a href="#galeria"><span>06</span>Galeria</a>
+        <a href="#dress-code"><span>07</span>Dress code</a>
+        <a href="#informacoes"><span>08</span>Informações</a>
+        <a href="#presentes"><span>09</span>Presentes</a>
+        <a href="#duvidas"><span>10</span>Dúvidas</a>
+        <a href="#rsvp" class="section-sheet__rsvp"><span>11</span>Confirmar presença</a>
+      </nav>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
