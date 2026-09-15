@@ -287,14 +287,14 @@ window.WEDDING_CONFIG = {
   },
 
   wedding: {
-    dateISO: "2027-11-14T16:30:00-03:00",
-    endISO: "2027-11-15T00:30:00-03:00",
-    shortDate: "14 · 11 · 27",
-    longDate: "14 de novembro de 2027",
-    weekday: "Domingo",
-    day: "14",
-    monthYear: "Novembro · 2027",
-    time: "16h30",
+    dateISO: "2027-04-03T17:00:00-03:00",
+    endISO: "2027-04-03T00:00:00-03:00",
+    shortDate: "03 · 04 · 27",
+    longDate: "03 de Abril de 2027",
+    weekday: "Sábado",
+    day: "03",
+    monthYear: "Abril · 2027",
+    time: "17h00",
     city: "Itu · São Paulo",
     calendarTitle: "Casamento — Liliane & Igor",
     calendarDescription: "Celebração do casamento de Liliane e Igor."
@@ -328,7 +328,7 @@ window.WEDDING_CONFIG = {
   story: {
     eyebrow: "De encontro em encontro",
     title: "O acaso virou escolha. A escolha virou casa.",
-    year: "desde 2019",
+    year: "desde 2023",
     imageCaption: "nossa história, do nosso jeito",
     image: "assets/images/story.svg",
     paragraphs: [
@@ -343,18 +343,18 @@ window.WEDDING_CONFIG = {
   events: [
     {
       title: "Cerimônia",
-      time: "16h30 · chegada a partir das 16h",
-      venue: "Capela de Santa Rita",
-      address: "Praça Conde de Parnaíba, 80 — Centro, Itu — SP",
-      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Pra%C3%A7a+Conde+de+Parna%C3%ADba+80+Itu+SP",
+      time: "17h00 · chegada a partir das 16h30min",
+      venue: "Paróquia São Luís Gonzaga",
+      address: "R. Leonardo Piunti, 475 — São Luiz, Itu — SP",
+      mapsUrl: "https://maps.app.goo.gl/cBcnP7PYY2Ed3Zdf9",
       mapsLabel: "Abrir no mapa"
     },
     {
       title: "Recepção",
-      time: "18h00 · após a cerimônia",
-      venue: "Villa das Flores",
-      address: "Estrada demonstrativa, 1000 — Itu — SP",
-      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Itu+SP",
+      time: "19h00 · após a cerimônia",
+      venue: "Paróquia São Luís Gonzaga",
+      address: "R. Leonardo Piunti, 475 — São Luiz, Itu — SP",
+      mapsUrl: "https://maps.app.goo.gl/cBcnP7PYY2Ed3Zdf9",
       mapsLabel: "Como chegar"
     }
   ],
@@ -362,11 +362,11 @@ window.WEDDING_CONFIG = {
   schedule: {
     note: "Os horários podem receber pequenos ajustes conforme o andamento da celebração.",
     items: [
-      { time: "16:00", title: "Boas-vindas", text: "Chegue com calma, encontre seu lugar e aproveite o clima do dia." },
-      { time: "16:30", title: "Cerimônia", text: "O momento em que dizemos sim diante das pessoas que amamos." },
-      { time: "18:00", title: "Recepção", text: "Brindes, encontros, música e tudo o que faz uma boa celebração." },
-      { time: "20:00", title: "Jantar", text: "Um menu preparado especialmente para esta noite." },
-      { time: "21:30", title: "Pista aberta", text: "Sapatos confortáveis são oficialmente bem-vindos depois daqui." }
+      { time: "16:30", title: "Boas-vindas", text: "Chegue com calma, encontre seu lugar e aproveite o clima do dia." },
+      { time: "17:00", title: "Cerimônia", text: "O momento em que dizemos sim diante das pessoas que amamos." },
+      { time: "19:00", title: "Recepção", text: "Brindes, encontros, música e tudo o que faz uma boa celebração." },
+      { time: "20:30", title: "Jantar", text: "Um menu preparado especialmente para esta noite." },
+      { time: "21:00", title: "Pista aberta", text: "Sapatos confortáveis são oficialmente bem-vindos depois daqui." }
     ]
   },
 
@@ -393,7 +393,7 @@ window.WEDDING_CONFIG = {
 
   guestInfo: [
     { icon: "car", title: "Estacionamento", text: "Haverá estacionamento no local da recepção. Se for beber, considere táxi ou aplicativo." },
-    { icon: "clock", title: "Pontualidade", text: "A cerimônia começa às 16h30. Recomendamos chegar com pelo menos 30 minutos de antecedência." },
+    { icon: "clock", title: "Pontualidade", text: "A cerimônia começa às 17h00. Recomendamos chegar com pelo menos 30 minutos de antecedência." },
     { icon: "heart", title: "Crianças", text: "Este exemplo aceita crianças. Ajuste aqui a política de convidados conforme cada casamento." },
     { icon: "camera", title: "Fotos", text: "Registre, compartilhe e marque os noivos. Durante a cerimônia, mantenha o corredor livre para a equipe de foto e vídeo." },
     { icon: "message", title: "Precisa de ajuda?", text: "Inclua aqui um telefone de cerimonialista ou pessoa de apoio para dúvidas no dia." }
@@ -420,7 +420,7 @@ window.WEDDING_CONFIG = {
     eyebrow: "Confirmação de presença",
     title: "Você vem celebrar com a gente?",
     text: "Sua resposta é muito importante para organizarmos cada detalhe com carinho.",
-    deadline: "10 de outubro de 2027",
+    deadline: "10 de Novembro de 2027",
     buttonLabel: "Enviar confirmação",
 
     /* MODOS: "whatsapp", "form" ou "demo" */
