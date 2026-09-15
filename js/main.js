@@ -48,6 +48,19 @@
   if (heroPresetFonts.body) document.documentElement.style.setProperty("--font-hero-body", heroPresetFonts.body);
   if (heroPresetFonts.ui) document.documentElement.style.setProperty("--font-hero-ui", heroPresetFonts.ui);
 
+  // Cores independentes para textos posicionados sobre fotografias.
+  // Podem ser alteradas diretamente em `photoText` no config.js.
+  const photoText = cfg.photoText || {};
+  const setPhotoVars = (group, prefix, fallback = {}) => {
+    const values = photoText[group] || {};
+    document.documentElement.style.setProperty(`--photo-${prefix}-text`, values.text || fallback.text || "var(--white)");
+    document.documentElement.style.setProperty(`--photo-${prefix}-muted`, values.muted || fallback.muted || "rgba(255,255,255,.72)");
+    document.documentElement.style.setProperty(`--photo-${prefix}-accent`, values.accent || fallback.accent || "var(--accent-warm)");
+  };
+  setPhotoVars("opening", "opening");
+  setPhotoVars("hero", "hero");
+  setPhotoVars("dateBreak", "date-break");
+
   // SEO / META ------------------------------------------------
   document.title = `${cfg.couple.firstName} & ${cfg.couple.secondName} — ${cfg.wedding.longDate}`;
   const description = `${cfg.couple.firstName} & ${cfg.couple.secondName} convidam você para celebrar seu casamento em ${cfg.wedding.longDate}.`;
@@ -100,6 +113,8 @@
     openButton?.style.setProperty("--drag-progress", progress.toFixed(4));
     openButton?.style.setProperty("--drag-percent", `${percent.toFixed(2)}%`);
     openButton?.style.setProperty("--drag-handle-x", `${(progress * handleTravel).toFixed(2)}px`);
+    // Só troca para a paleta sobre foto quando a imagem realmente começa a aparecer.
+    opening?.classList.toggle("has-photo-text", progress >= 0.28);
   };
 
   const finishOpening = () => {
@@ -197,9 +212,6 @@
   }
 
   // MARQUEE --------------------------------------------------
-  const marqueeText = `${cfg.wedding.longDate} — ${cfg.wedding.city} — ${cfg.couple.firstName} & ${cfg.couple.secondName}`;
-  const marqueeChunk = `<span>${escapeHtml(marqueeText)} <i></i></span>`;
-  if ($("#marqueeTrack")) $("#marqueeTrack").innerHTML = marqueeChunk.repeat(8);
 
   // STORY ----------------------------------------------------
   if ($("#storyParagraphs")) {
@@ -496,91 +508,48 @@
     });
   }
 
-  // QUICK SECTION NAVIGATION ----------------------------------
-  const quickActions = $("#quickActions");
-  const sectionNavButton = $("#sectionNavButton");
-  const sectionSheet = $("#sectionSheet");
-  const sheetPanel = $(".section-sheet__panel", sectionSheet || document);
-  let sheetLastFocus = null;
+  // FLOATING NAV / PROGRESS ----------------------------------
+  const floatingNav = $("#floatingNav");
+  const heroSection = $("#inicio");
 
-  const openSectionSheet = () => {
-    if (!sectionSheet) return;
-    sheetLastFocus = document.activeElement;
-    sectionSheet.classList.add("is-open");
-    sectionSheet.setAttribute("aria-hidden", "false");
-    sectionNavButton?.setAttribute("aria-expanded", "true");
-    document.body.classList.add("sheet-open");
-    window.setTimeout(() => $(".section-sheet__close", sectionSheet)?.focus(), 40);
-  };
+  // O menu só aparece depois que o hero deixa de ser a tela principal.
+  if (floatingNav && heroSection && "IntersectionObserver" in window) {
+    const navVisibilityObserver = new IntersectionObserver(([entry]) => {
+      floatingNav.classList.toggle("is-visible", !entry.isIntersecting);
+    }, { threshold: 0.15 });
+    navVisibilityObserver.observe(heroSection);
+  } else if (floatingNav) {
+    const updateNavVisibility = () => floatingNav.classList.toggle("is-visible", scrollY > innerHeight * .72);
+    window.addEventListener("scroll", updateNavVisibility, { passive: true });
+    updateNavVisibility();
+  }
 
-  const closeSectionSheet = ({ restoreFocus = true } = {}) => {
-    if (!sectionSheet) return;
-    sectionSheet.classList.remove("is-open");
-    sectionSheet.setAttribute("aria-hidden", "true");
-    sectionNavButton?.setAttribute("aria-expanded", "false");
-    document.body.classList.remove("sheet-open");
-    if (restoreFocus && sheetLastFocus instanceof HTMLElement) sheetLastFocus.focus();
-  };
-
-  sectionNavButton?.addEventListener("click", openSectionSheet);
-  $$('[data-sheet-close]', sectionSheet || document).forEach((button) => button.addEventListener("click", () => closeSectionSheet()));
-  $$(".section-sheet__nav a", sectionSheet || document).forEach((link) => link.addEventListener("click", () => closeSectionSheet({ restoreFocus: false })));
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && sectionSheet?.classList.contains("is-open")) closeSectionSheet();
-  });
-
-  // Mantém o foco dentro do painel quando ele estiver aberto.
-  sectionSheet?.addEventListener("keydown", (event) => {
-    if (event.key !== "Tab" || !sectionSheet.classList.contains("is-open")) return;
-    const focusable = $$('a[href], button:not([disabled])', sheetPanel || sectionSheet);
-    if (!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-    if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-  });
-
-  // NAV / MENU / PROGRESS -----------------------------------
-  const header = $("#siteHeader");
-  const menuToggle = $("#menuToggle");
-  menuToggle?.addEventListener("click", () => {
-    const open = document.body.classList.toggle("menu-open");
-    menuToggle.setAttribute("aria-expanded", String(open));
-  });
-  $$("#mainNav a").forEach((link) => link.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
-    menuToggle?.setAttribute("aria-expanded", "false");
-  }));
-
-  let lastY = 0;
   const onScroll = () => {
-    const y = window.scrollY;
-    header?.classList.toggle("is-scrolled", y > 20);
-    if (y > 360 && y > lastY + 8) header?.classList.add("is-hidden");
-    else if (y < lastY - 8 || y < 360) header?.classList.remove("is-hidden");
-    lastY = y;
-
     const scrollable = document.documentElement.scrollHeight - innerHeight;
-    const percent = scrollable > 0 ? (y / scrollable) * 100 : 0;
+    const percent = scrollable > 0 ? (scrollY / scrollable) * 100 : 0;
     if ($("#progressBar")) $("#progressBar").style.width = `${Math.min(100, percent)}%`;
-    quickActions?.classList.toggle("is-visible", y > Math.min(260, innerHeight * 0.32));
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // SECTION ACTIVE -------------------------------------------
-  const observedSections = $$('main section[id]');
-  const navLinks = $$("#mainNav a");
-  const sheetLinks = $$(".section-sheet__nav a");
-  const allSectionLinks = [...navLinks, ...sheetLinks];
-  if ("IntersectionObserver" in window) {
-    const sectionObserver = new IntersectionObserver((entries) => {
-      const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  // Destaca o atalho correspondente quando uma das cinco seções principais entra em foco.
+  const floatingLinks = $$("#floatingNav a");
+  const floatingTargets = floatingLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+  if ("IntersectionObserver" in window && floatingTargets.length) {
+    const navActiveObserver = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (!visible) return;
-      allSectionLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${visible.target.id}`));
-    }, { threshold: [0.25, 0.55], rootMargin: "-20% 0px -55%" });
-    observedSections.forEach((section) => sectionObserver.observe(section));
+      floatingLinks.forEach((link) => {
+        const active = link.getAttribute("href") === `#${visible.target.id}`;
+        link.classList.toggle("is-active", active);
+        if (active) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+    }, { threshold: [0.2, 0.45, 0.7], rootMargin: "-12% 0px -52%" });
+    floatingTargets.forEach((section) => navActiveObserver.observe(section));
   }
 
   // REVEAL ---------------------------------------------------

@@ -312,3 +312,22 @@ opening: {
 ```
 
 `dragThreshold` define quanto do gesto precisa ser concluido antes de a abertura terminar automaticamente. Ex.: `0.68` = 68%.
+
+
+## Navegação flutuante e cores sobre fotos
+
+Nesta versão, o menu tradicional e o painel de “Seções” foram substituídos por uma navegação flutuante compacta. Ela fica oculta enquanto o hero está em destaque e aparece automaticamente após a primeira tela. No celular são exibidos somente os ícones; a partir de 821px aparecem ícones + rótulos.
+
+A antiga faixa animada (`marquee`) com data, cidade e nomes foi removida.
+
+As cores de tipografia sobre fotografias agora ficam centralizadas em `js/config.js`:
+
+```js
+photoText: {
+  opening: { text: "var(--white)", muted: "rgba(255,255,255,.76)", accent: "var(--accent-warm)" },
+  hero: { text: "var(--white)", muted: "rgba(255,255,255,.70)", accent: "var(--accent-warm)" },
+  dateBreak: { text: "var(--white)", muted: "rgba(255,255,255,.76)", accent: "var(--accent-warm)" }
+}
+```
+
+Se uma fotografia for muito clara, por exemplo, você pode definir `text: "#171717"` e ajustar `muted`/`accent` sem alterar CSS. Na abertura, essas cores especiais só passam a valer quando a foto começa a ser revelada; o estado inicial sobre papel continua usando as cores normais do tema.

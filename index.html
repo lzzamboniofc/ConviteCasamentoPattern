@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -15,12 +16,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Fontes disponíveis nos presets de js/config.js. O navegador baixa apenas as usadas. -->
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cinzel:wght@400;500;600&family=Cormorant:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Infant:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:wght@400;500;600&family=Great+Vibes&family=Imperial+Script&family=Inter:wght@400;500;600&family=Italiana&family=Italianno&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;500;600&family=Manrope:wght@400;500;600&family=Marcellus&family=Montserrat:wght@400;500;600&family=Monsieur+La+Doulaise&family=MonteCarlo&family=Mrs+Saint+Delafield&family=Parisienne&family=Petit+Formal+Script&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&family=Prata&family=Roboto:wght@300;400;500;700&family=Rochester&family=Sacramento&family=Source+Sans+3:wght@400;500;600&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cinzel:wght@400;500;600&family=Cormorant:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Infant:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:wght@400;500;600&family=Great+Vibes&family=Imperial+Script&family=Inter:wght@400;500;600&family=Italiana&family=Italianno&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;500;600&family=Manrope:wght@400;500;600&family=Marcellus&family=Montserrat:wght@400;500;600&family=Monsieur+La+Doulaise&family=MonteCarlo&family=Mrs+Saint+Delafield&family=Parisienne&family=Petit+Formal+Script&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&family=Prata&family=Roboto:wght@300;400;500;700&family=Rochester&family=Sacramento&family=Source+Sans+3:wght@400;500;600&family=Tangerine:wght@400;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body class="is-locked">
   <noscript>
     <div class="noscript">Este convite precisa de JavaScript habilitado para exibir os dados do casamento.</div>
@@ -55,35 +59,55 @@
           <p class="opening__hint" data-text="opening.hint"></p>
         </div>
         <button class="open-button" id="openInvitation" type="button" aria-label="Abrir convite">
-          <span class="open-button__label open-button__label--desktop" data-text="opening.buttonLabel">Abrir convite</span>
-          <span class="open-button__label open-button__label--mobile" data-text="opening.mobileDragLabel">Deslize para abrir</span>
+          <span class="open-button__label open-button__label--desktop" data-text="opening.buttonLabel">Abrir
+            convite</span>
+          <span class="open-button__label open-button__label--mobile" data-text="opening.mobileDragLabel">Deslize para
+            abrir</span>
           <span class="open-button__track" aria-hidden="true"><span></span></span>
           <span class="open-button__handle" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M5 12h13M14 7l5 5-5 5" />
+            </svg>
           </span>
         </button>
       </div>
     </div>
   </div>
 
-  <header class="site-header" id="siteHeader">
-    <a class="brand" href="#inicio" aria-label="Voltar ao início">
-      <span class="brand__monogram" data-text="couple.initials"></span>
-      <span class="brand__date" data-text="wedding.shortDate"></span>
+  <nav class="floating-nav" id="floatingNav" aria-label="Navegação rápida">
+    <a href="#inicio" aria-label="Início">
+      <svg class="floating-nav__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 10.8 12 3l9 7.8v9.7a.5.5 0 0 1-.5.5h-5.3v-6.4H8.8V21H3.5a.5.5 0 0 1-.5-.5v-9.7Z" />
+      </svg>
+      <span class="floating-nav__label">Início</span>
     </a>
-
-    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav">
-      <span></span><span></span>
-      <span class="sr-only">Abrir menu</span>
-    </button>
-
-    <nav class="nav" id="mainNav" aria-label="Navegação principal">
-      <a href="#historia">Nossa história</a>
-      <a href="#detalhes">O grande dia</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#rsvp" class="nav__cta">Confirmar presença</a>
-    </nav>
-  </header>
+    <a href="#historia" aria-label="Nossa história">
+      <svg class="floating-nav__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 20.5S4.5 16.2 4.5 10.3A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.9c0 5.9-7.5 10.2-7.5 10.2Z" />
+      </svg>
+      <span class="floating-nav__label">História</span>
+    </a>
+    <a href="#detalhes" aria-label="O grande dia">
+      <svg class="floating-nav__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2.8 5.5 8v13h13V8L12 2.8Zm0 4.1 2.5 2H9.5l2.5-2Zm-3.2 4.6h6.4V21H8.8v-9.5Z" />
+      </svg>
+      <span class="floating-nav__label">O dia</span>
+    </a>
+    <a href="#galeria" aria-label="Memórias">
+      <svg class="floating-nav__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm2.2 11h11.6l-3.6-4.1-2.7 3-1.8-2-3.5 3.1ZM8 10a1.7 1.7 0 1 0 0-3.4A1.7 1.7 0 0 0 8 10Z" />
+      </svg>
+      <span class="floating-nav__label">Memórias</span>
+    </a>
+    <a href="#rsvp" aria-label="Confirmar presença">
+      <svg class="floating-nav__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M5 3.5h14a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-15a1 1 0 0 1 1-1Zm3 5.2 2.3 2.3L16 5.8l1.4 1.5-7.1 6.5L6.6 10 8 8.7Zm-1.4 8h10.8v-2H6.6v2Z" />
+      </svg>
+      <span class="floating-nav__label">RSVP</span>
+    </a>
+  </nav>
 
   <main>
     <section class="hero" id="inicio" aria-label="Início do convite">
@@ -102,7 +126,7 @@
       </div>
 
       <div class="hero__folio" aria-hidden="true">
-        <span>EST.</span>
+        <span>Abril</span>
         <strong data-text="wedding.day"></strong>
       </div>
 
@@ -123,16 +147,13 @@
       <div class="hero__bottom reveal">
         <a class="hero__rsvp" href="#rsvp">
           <span>RSVP</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h13M14 7l5 5-5 5" />
+          </svg>
         </a>
-        <a class="scroll-label" href="#boas-vindas">Role para descobrir <span>↓</span></a>
+        <a class="scroll-label" href="#boas-vindas" style="display: flex;align-items: center;justify-content: center;flex-direction: column;">Role para descobrir <span>↓</span></a>
       </div>
     </section>
-
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track" id="marqueeTrack"></div>
-    </div>
-
     <section class="welcome section" id="boas-vindas">
       <div class="container welcome__grid">
         <div class="section-index reveal">01 — O convite</div>
@@ -152,11 +173,15 @@
           </div>
         </aside>
       </div>
+      <div class="boas-vindas-scroll"
+        style="width: 100%;display: flex;align-items: center;justify-content: center;padding: 20px 20px 0 0;">
+        <a class="scroll-label" href="#hist" style="color: var(--black);display: flex;align-items: center;justify-content: center;flex-direction: column;">Role para descobrir <span>↓</span></a>
+      </div>
     </section>
 
     <section class="story section" id="historia">
       <div class="container story__grid">
-        <div class="story__media reveal" data-speed="0.08">
+        <div class="story__media reveal" data-speed="0.08" id="hist">
           <img id="storyImage" src="assets/images/story.svg" alt="Foto do casal" loading="lazy">
           <span class="story__year" data-text="story.year"></span>
           <span class="story__caption" data-text="story.imageCaption"></span>
@@ -169,13 +194,18 @@
           <blockquote class="quote reveal" data-text="story.quote"></blockquote>
         </div>
       </div>
+      <div class="historia-scroll"
+        style="width: 100%;display: flex;align-items: center;justify-content: center;padding: 20px 20px 0 0;">
+        <a class="scroll-label" href="#breakImage-roll" style="color: var(--black);display: flex;align-items: center;justify-content: center;flex-direction: column;">Role para descobrir
+          <span>↓</span></a>
+      </div>
     </section>
 
     <section class="date-break" aria-label="Data do casamento">
       <div class="date-break__media" aria-hidden="true">
         <img id="dateBreakImage" src="assets/images/date-break.svg" alt="" loading="lazy">
       </div>
-      <div class="date-break__overlay"></div>
+      <div class="date-break__overlay" id="breakImage-roll"></div>
       <div class="date-break__content reveal">
         <span data-text="wedding.weekday"></span>
         <strong data-text="wedding.day"></strong>
@@ -194,6 +224,11 @@
         </div>
         <div class="event-grid" id="eventGrid"></div>
       </div>
+      <div class="detalhes-scroll"
+        style="width: 100%;display: flex;align-items: center;justify-content: center;padding: 20px 20px 0 0;">
+        <a class="scroll-label" href="#programacao" style="color: var(--black);display: flex;align-items: center;justify-content: center;flex-direction: column;">Role para descobrir
+          <span>↓</span></a>
+      </div>
     </section>
 
     <section class="schedule section" id="programacao">
@@ -209,13 +244,20 @@
         <div class="schedule__actions reveal">
           <button class="text-button" id="calendarButton" type="button">
             <span>Adicionar ao calendário</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v3M18 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 3v3M18 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z" />
+            </svg>
           </button>
           <!-- <button class="text-button" id="shareButton" type="button">
             <span>Compartilhar convite</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M13 7l5 5-5 5M5 5h5M5 19h5M5 5v14"/></svg>
           </button> -->
         </div>
+        <div class="galeria-scroll"
+        style="width: 100%;display: flex;align-items: center;justify-content: center;padding: 20px 20px 0 0;">
+        <a class="scroll-label" href="#galeria-scroll" style="color: var(--white);display: flex;align-items: center;justify-content: center;flex-direction: column;">Role para descobrir
+          <span>↓</span></a>
+      </div>
       </div>
     </section>
 
@@ -223,19 +265,24 @@
       <div class="container">
         <div class="gallery__head">
           <div>
-            <div class="section-index reveal">05 — Memórias</div>
+            <div class="section-index reveal" id="galeria-scroll">05 — Memórias</div>
             <p class="eyebrow reveal">Alguns capítulos</p>
           </div>
           <h2 class="display-title reveal" data-text="gallery.title"></h2>
         </div>
         <div class="gallery__grid" id="galleryGrid"></div>
       </div>
+      <div class="dress-code-scroll"
+        style="width: 100%;display: flex;align-items: center;justify-content: center;padding: 20px 20px 0 0;">
+        <a class="scroll-label" href="#dress-scroll" style="color: var(--black);display: flex;align-items: center;justify-content: center;flex-direction: column;">Role para descobrir
+          <span>↓</span></a>
+      </div>
     </section>
 
     <section class="dress section" id="dress-code">
       <div class="container dress__grid">
         <div class="dress__copy">
-          <div class="section-index reveal">06 — Dress code</div>
+          <div class="section-index reveal" id="dress-scroll">06 — Dress code</div>
           <p class="eyebrow reveal" data-text="dressCode.eyebrow"></p>
           <h2 class="display-title reveal" data-text="dressCode.title"></h2>
           <p class="lead reveal" data-text="dressCode.text"></p>
@@ -243,19 +290,30 @@
           <div class="palette reveal" id="dressPalette" aria-label="Sugestão de paleta"></div>
         </div>
         <div class="dress__media reveal">
-          <img id="dressImage" src="assets/images/dress-code.svg" alt="Referência visual para o dress code" loading="lazy">
+          <img id="dressImage" src="assets/images/dress-code.svg" alt="Referência visual para o dress code"
+            loading="lazy">
           <span class="dress__stamp">DRESS<br>CODE</span>
         </div>
+      </div>
+      <div class="informacao-scroll"
+        style="width: 100%;display: flex;align-items: center;justify-content: center;padding: 20px 20px 0 0;">
+        <a class="scroll-label" href="#info-scroll" style="color: var(--black);display: flex;align-items: center;justify-content: center;flex-direction: column;">Role para descobrir
+          <span>↓</span></a>
       </div>
     </section>
 
     <section class="guest-info section" id="informacoes">
       <div class="container">
-        <div class="guest-info__head reveal">
+        <div class="guest-info__head reveal" id="info-scroll">
           <div class="section-index">07 — Para você se organizar</div>
           <h2 class="display-title">Pequenos detalhes,<br>uma experiência tranquila.</h2>
         </div>
         <div class="info-grid" id="infoGrid"></div>
+      </div>
+      <div class="presente-scroll"
+        style="width: 100%;display: flex;align-items: center;justify-content: center;padding: 20px 20px 0 0;">
+        <a class="scroll-label" href="#presentes" style="color: var(--black);display: flex;align-items: center;justify-content: center;flex-direction: column;">Role para descobrir
+          <span>↓</span></a>
       </div>
     </section>
 
@@ -271,6 +329,7 @@
         <div class="gift-links reveal" id="giftLinks"></div>
       </div>
     </section>
+    
 
     <section class="faq section" id="duvidas">
       <div class="container faq__grid">
@@ -324,7 +383,9 @@
             </label>
             <button class="primary-button" type="submit">
               <span data-text="rsvp.buttonLabel">Confirmar presença</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h13M14 7l5 5-5 5" />
+              </svg>
             </button>
             <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           </form>
@@ -353,12 +414,14 @@
 
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Galeria ampliada">
     <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Fechar galeria">×</button>
-    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" type="button" aria-label="Foto anterior">←</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" type="button"
+      aria-label="Foto anterior">←</button>
     <figure>
       <img id="lightboxImage" src="" alt="">
       <figcaption id="lightboxCaption"></figcaption>
     </figure>
-    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" type="button" aria-label="Próxima foto">→</button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" type="button"
+      aria-label="Próxima foto">→</button>
   </div>
 
   <button class="music-button" id="musicButton" type="button" aria-label="Reproduzir música" hidden>
@@ -367,41 +430,8 @@
   </button>
   <audio id="backgroundMusic" preload="none"></audio>
 
-  <div class="quick-actions" id="quickActions" aria-label="Atalhos do convite">
-    <button class="quick-actions__sections" id="sectionNavButton" type="button" aria-expanded="false" aria-controls="sectionSheet">
-      <span class="quick-actions__icon" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span>Seções</span>
-    </button>
-    <a class="quick-actions__top" id="backToTop" href="#inicio" aria-label="Voltar ao topo">↑</a>
-  </div>
-
-  <div class="section-sheet" id="sectionSheet" aria-hidden="true">
-    <button class="section-sheet__backdrop" type="button" data-sheet-close aria-label="Fechar menu de seções"></button>
-    <div class="section-sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sectionSheetTitle">
-      <div class="section-sheet__head">
-        <div>
-          <span class="mini-label">Navegação rápida</span>
-          <h2 id="sectionSheetTitle">Ir para uma seção</h2>
-        </div>
-        <button class="section-sheet__close" type="button" data-sheet-close aria-label="Fechar">×</button>
-      </div>
-      <nav class="section-sheet__nav" aria-label="Seções do convite">
-        <a href="#inicio"><span>01</span>Início</a>
-        <a href="#boas-vindas"><span>02</span>O convite</a>
-        <a href="#historia"><span>03</span>Nossa história</a>
-        <a href="#detalhes"><span>04</span>O grande dia</a>
-        <a href="#programacao"><span>05</span>Programação</a>
-        <a href="#galeria"><span>06</span>Galeria</a>
-        <a href="#dress-code"><span>07</span>Dress code</a>
-        <a href="#informacoes"><span>08</span>Informações</a>
-        <a href="#presentes"><span>09</span>Presentes</a>
-        <a href="#duvidas"><span>10</span>Dúvidas</a>
-        <a href="#rsvp" class="section-sheet__rsvp"><span>11</span>Confirmar presença</a>
-      </nav>
-    </div>
-  </div>
-
   <script src="js/config.js"></script>
   <script src="js/main.js" defer></script>
 </body>
+
 </html>

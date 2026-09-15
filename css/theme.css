@@ -31,6 +31,17 @@
   --white: #fffdf8;
   --black: #151713;
 
+  /* Textos sobre fotografia: definidos por `photoText` em js/config.js. */
+  --photo-opening-text: #fffdf8;
+  --photo-opening-muted: rgba(255,255,255,.76);
+  --photo-opening-accent: #b38f72;
+  --photo-hero-text: #fffdf8;
+  --photo-hero-muted: rgba(255,255,255,.70);
+  --photo-hero-accent: #b38f72;
+  --photo-date-break-text: #fffdf8;
+  --photo-date-break-muted: rgba(255,255,255,.76);
+  --photo-date-break-accent: #b38f72;
+
   /* Tipografia do conteúdo geral. */
   --font-display: "Bodoni Moda", Georgia, serif;
   --font-body: "Manrope", Arial, sans-serif;

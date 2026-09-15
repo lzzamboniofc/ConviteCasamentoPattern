@@ -270,13 +270,24 @@ window.WEDDING_CONFIG = {
     - heroFontPreset: tipografia exclusiva da abertura + primeira tela (hero).
     - fontPreset: tipografia usada no restante do convite e na lista de presentes.
   */
-  themePreset: "rubyNight",
+  themePreset: "vividPurple",
   heroFontPreset: "formalClassic",
   fontPreset: "poppins",
 
   /* Sobrescritas opcionais: deixe vazio para usar 100% do preset. */
   theme: {
     /* Exemplo de sobrescrita: accent: "#6B7A5A" */
+  },
+
+  /*
+    Cores dos textos que ficam SOBRE fotografias.
+    Use qualquer cor CSS (#fff, rgb, rgba, var(--...)).
+    Assim, ao trocar uma foto clara/escura você não precisa procurar regras no CSS.
+  */
+  photoText: {
+    opening: { text: "var(--white)", muted: "rgba(255,255,255,.76)", accent: "var(--accent-warm)" },
+    hero: { text: "var(--white)", muted: "rgba(255,255,255,.70)", accent: "var(--accent-warm)" },
+    dateBreak: { text: "var(--white)", muted: "rgba(255,255,255,.76)", accent: "var(--accent-warm)" }
   },
 
   couple: {
@@ -442,8 +453,8 @@ window.WEDDING_CONFIG = {
   },
 
   music: {
-    enabled: false,
-    file: "assets/audio/musica.mp3",
+    enabled: true,
+    file: "assets/audio/musica2.mp3",
     labelPlay: "Música",
     labelPause: "Pausar"
   },
