@@ -454,7 +454,7 @@ window.WEDDING_CONFIG = {
 
   music: {
     enabled: true,
-    file: "assets/audio/musica2.mp3",
+    file: "assets/audio/musica.mp3",
     labelPlay: "Música",
     labelPause: "Pausar"
   },
