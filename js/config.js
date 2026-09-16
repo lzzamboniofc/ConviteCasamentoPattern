@@ -327,7 +327,7 @@ window.WEDDING_CONFIG = {
   hero: {
     kicker: "Save the date",
     pretitle: "Temos a alegria de convidar você",
-    image: "assets/images/hero.svg"
+    image: "assets/images/hero.jpg"
   },
 
   welcome: {
@@ -341,7 +341,7 @@ window.WEDDING_CONFIG = {
     title: "O acaso virou escolha. A escolha virou casa.",
     year: "desde 2023",
     imageCaption: "nossa história, do nosso jeito",
-    image: "assets/images/story.svg",
+    image: "assets/images/story.jpg",
     paragraphs: [
       "Tudo começou sem grandes planos: uma conversa que durou mais do que deveria, um café que virou jantar e a sensação de que o tempo passava diferente quando estávamos juntos.",
       "Vieram viagens, mudanças, domingos preguiçosos, planos rabiscados em guardanapos e a certeza tranquila de que queríamos continuar escolhendo um ao outro. Agora, queremos celebrar essa escolha com vocês."
@@ -349,7 +349,7 @@ window.WEDDING_CONFIG = {
     quote: "Se o amor é uma soma de pequenos instantes, este será um dos nossos preferidos."
   },
 
-  dateBreakImage: "assets/images/date-break.svg",
+  dateBreakImage: "assets/images/date-break.jpg",
 
   events: [
     {
@@ -384,12 +384,12 @@ window.WEDDING_CONFIG = {
   gallery: {
     title: "O amor também mora nos detalhes.",
     images: [
-      { src: "assets/images/gallery-1.svg", alt: "Foto do casal", caption: "Capítulo 01" },
-      { src: "assets/images/gallery-2.svg", alt: "Foto do casal", caption: "Capítulo 02" },
-      { src: "assets/images/gallery-3.svg", alt: "Foto do casal", caption: "Capítulo 03" },
-      { src: "assets/images/gallery-4.svg", alt: "Foto do casal", caption: "Capítulo 04" },
-      { src: "assets/images/gallery-5.svg", alt: "Foto do casal", caption: "Capítulo 05" },
-      { src: "assets/images/gallery-6.svg", alt: "Foto do casal", caption: "Capítulo 06" }
+      { src: "assets/images/gallery-1.jpg", alt: "Foto do casal", caption: "Capítulo 01" },
+      { src: "assets/images/gallery-2.jpg", alt: "Foto do casal", caption: "Capítulo 02" },
+      { src: "assets/images/gallery-3.jpg", alt: "Foto do casal", caption: "Capítulo 03" },
+      { src: "assets/images/gallery-4.jpg", alt: "Foto do casal", caption: "Capítulo 04" },
+      { src: "assets/images/gallery-5.jpg", alt: "Foto do casal", caption: "Capítulo 05" },
+      { src: "assets/images/gallery-6.jpg", alt: "Foto do casal", caption: "Capítulo 06" }
     ]
   },
 
@@ -398,7 +398,7 @@ window.WEDDING_CONFIG = {
     title: "Esporte fino",
     text: "Elegante, leve e confortável. Queremos que você se sinta à vontade para aproveitar cada momento da celebração.",
     note: "Pedimos carinho especial para que branco, off-white, champagne e tons muito claros fiquem reservados para a noiva.",
-    image: "assets/images/dress-code.svg",
+    image: "assets/images/dress-code.jpg",
     palette: ["#3F4C39", "#7A8469", "#B8A58B", "#C9B8A4", "#4F3931"]
   },
 
@@ -406,8 +406,7 @@ window.WEDDING_CONFIG = {
     { icon: "car", title: "Estacionamento", text: "Haverá estacionamento no local da recepção. Se for beber, considere táxi ou aplicativo." },
     { icon: "clock", title: "Pontualidade", text: "A cerimônia começa às 17h00. Recomendamos chegar com pelo menos 30 minutos de antecedência." },
     { icon: "heart", title: "Crianças", text: "Este exemplo aceita crianças. Ajuste aqui a política de convidados conforme cada casamento." },
-    { icon: "camera", title: "Fotos", text: "Registre, compartilhe e marque os noivos. Durante a cerimônia, mantenha o corredor livre para a equipe de foto e vídeo." },
-    { icon: "message", title: "Precisa de ajuda?", text: "Inclua aqui um telefone de cerimonialista ou pessoa de apoio para dúvidas no dia." }
+    { icon: "camera", title: "Fotos", text: "Registre, compartilhe e marque os noivos. Durante a cerimônia, mantenha o corredor livre para a equipe de foto e vídeo." }
   ],
 
   gifts: {
@@ -460,6 +459,6 @@ window.WEDDING_CONFIG = {
   },
 
   images: {
-    rsvp: "assets/images/rsvp.svg"
+    rsvp: "assets/images/rsvp.jpg"
   }
 };

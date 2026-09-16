@@ -37,7 +37,7 @@ window.GIFT_LIST_CONFIG = {
       category: "casa",
       price: 89,
       description: "Um começo de dia com café fresco e nenhuma pressa.",
-      image: "assets/images/gifts/cafe-da-manha.svg",
+      image: "assets/images/gifts/cafe-da-manha.jpg",
       qrImage: "assets/images/qr/cafe-da-manha.png"
     },
     {
@@ -46,7 +46,7 @@ window.GIFT_LIST_CONFIG = {
       category: "casa",
       price: 129,
       description: "Para os brindes dos próximos capítulos.",
-      image: "assets/images/gifts/jogo-de-tacas.svg",
+      image: "assets/images/gifts/jogo-de-tacas.jpg",
       qrImage: "assets/images/qr/jogo-de-tacas.png"
     },
     {
@@ -55,7 +55,7 @@ window.GIFT_LIST_CONFIG = {
       category: "experiencias",
       price: 159,
       description: "Uma noite gostosa para inaugurar a vida a dois.",
-      image: "assets/images/gifts/kit-fondue.svg",
+      image: "assets/images/gifts/kit-fondue.jpg",
       qrImage: "assets/images/qr/kit-fondue.png"
     },
     {
@@ -64,7 +64,7 @@ window.GIFT_LIST_CONFIG = {
       category: "experiencias",
       price: 219,
       description: "Uma mesa bonita, boa conversa e um novo motivo para celebrar.",
-      image: "assets/images/gifts/jantar-a-dois.svg",
+      image: "assets/images/gifts/jantar-a-dois.jpg",
       qrImage: "assets/images/qr/jantar-a-dois.png"
     },
     {
@@ -73,7 +73,7 @@ window.GIFT_LIST_CONFIG = {
       category: "casa",
       price: 279,
       description: "Um carinho simbólico para a nova casa.",
-      image: "assets/images/gifts/cama-mesa-banho.svg",
+      image: "assets/images/gifts/cama-mesa-banho.jpg",
       qrImage: "assets/images/qr/cama-mesa-banho.png"
     },
     {
@@ -82,7 +82,7 @@ window.GIFT_LIST_CONFIG = {
       category: "casa",
       price: 349,
       description: "Para as receitas rápidas — e os domingos preguiçosos.",
-      image: "assets/images/gifts/air-fryer.svg",
+      image: "assets/images/gifts/air-fryer.jpg",
       qrImage: "assets/images/qr/air-fryer.png"
     },
     {
@@ -91,7 +91,7 @@ window.GIFT_LIST_CONFIG = {
       category: "casa",
       price: 399,
       description: "Para carregar memórias dos próximos destinos.",
-      image: "assets/images/gifts/mala-de-viagem.svg",
+      image: "assets/images/gifts/mala-de-viagem.jpg",
       qrImage: "assets/images/qr/mala-de-viagem.png"
     },
     {
@@ -100,7 +100,7 @@ window.GIFT_LIST_CONFIG = {
       category: "experiencias",
       price: 449,
       description: "Um jantar especial durante uma das nossas próximas aventuras.",
-      image: "assets/images/gifts/experiencia-gastronomica.svg",
+      image: "assets/images/gifts/experiencia-gastronomica.jpg",
       qrImage: "assets/images/qr/experiencia-gastronomica.png"
     },
     {
@@ -109,7 +109,7 @@ window.GIFT_LIST_CONFIG = {
       category: "lua-de-mel",
       price: 249,
       description: "Uma experiência para descobrir o destino juntos.",
-      image: "assets/images/gifts/passeio-lua-de-mel.svg",
+      image: "assets/images/gifts/passeio-lua-de-mel.jpg",
       qrImage: "assets/images/qr/passeio-lua-de-mel.png"
     },
     {
@@ -118,7 +118,7 @@ window.GIFT_LIST_CONFIG = {
       category: "lua-de-mel",
       price: 329,
       description: "Uma noite especial durante a viagem dos recém-casados.",
-      image: "assets/images/gifts/jantar-lua-de-mel.svg",
+      image: "assets/images/gifts/jantar-lua-de-mel.jpg",
       qrImage: "assets/images/qr/jantar-lua-de-mel.png"
     },
     {
@@ -127,7 +127,7 @@ window.GIFT_LIST_CONFIG = {
       category: "lua-de-mel",
       price: 489,
       description: "Ajude a transformar uma noite da viagem em uma lembrança inesquecível.",
-      image: "assets/images/gifts/diaria-hotel.svg",
+      image: "assets/images/gifts/diaria-hotel.jpg",
       qrImage: "assets/images/qr/diaria-hotel.png"
     },
     {
@@ -136,7 +136,7 @@ window.GIFT_LIST_CONFIG = {
       category: "lua-de-mel",
       price: 549,
       description: "Uma cota simbólica para um dia diferente durante a viagem.",
-      image: "assets/images/gifts/passeio-barco.svg",
+      image: "assets/images/gifts/passeio-barco.jpg",
       qrImage: "assets/images/qr/passeio-barco.png"
     },
     {
@@ -145,7 +145,7 @@ window.GIFT_LIST_CONFIG = {
       category: "lua-de-mel",
       price: 699,
       description: "Um pouco mais de conforto para começar a viagem em grande estilo.",
-      image: "assets/images/gifts/upgrade-quarto.svg",
+      image: "assets/images/gifts/upgrade-quarto.jpg",
       qrImage: "assets/images/qr/upgrade-quarto.png"
     },
     {
@@ -154,7 +154,7 @@ window.GIFT_LIST_CONFIG = {
       category: "experiencias",
       price: 799,
       description: "Uma pausa a dois depois da maratona do casamento.",
-      image: "assets/images/gifts/fim-de-semana.svg",
+      image: "assets/images/gifts/fim-de-semana.jpg",
       qrImage: "assets/images/qr/fim-de-semana.png"
     },
     {
@@ -163,7 +163,7 @@ window.GIFT_LIST_CONFIG = {
       category: "lua-de-mel",
       price: 999,
       description: "Uma contribuição livre para os planos que queremos viver juntos.",
-      image: "assets/images/gifts/cota-especial.svg",
+      image: "assets/images/gifts/cota-especial.jpg",
       qrImage: "assets/images/qr/cota-especial.png"
     }
   ]
