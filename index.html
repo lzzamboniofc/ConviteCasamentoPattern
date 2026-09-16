@@ -9,7 +9,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Nosso casamento">
   <meta property="og:description" content="Você é nosso convidado para celebrar esse dia conosco.">
-  <meta property="og:image" content="assets/images/hero.svg">
+  <meta property="og:image" content="assets/images/hero.jpg">
   <title>Nosso casamento</title>
 
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
@@ -34,7 +34,7 @@
 
   <div class="opening" id="opening" aria-label="Abertura do convite">
     <div class="opening__reveal" aria-hidden="true">
-      <img id="openingRevealImage" src="assets/images/hero.svg" alt="">
+      <img id="openingRevealImage" src="assets/images/hero.jpg" alt="">
       <div class="opening__reveal-veil"></div>
     </div>
     <div class="opening__grain" aria-hidden="true"></div>
@@ -59,12 +59,8 @@
           <p class="opening__hint" data-text="opening.hint"></p>
         </div>
         <button class="open-button" id="openInvitation" type="button" aria-label="Abrir convite">
-          <span class="open-button__label open-button__label--desktop" data-text="opening.buttonLabel">Abrir
-            convite</span>
-          <span class="open-button__label open-button__label--mobile" data-text="opening.mobileDragLabel">Deslize para
-            abrir</span>
-          <span class="open-button__track" aria-hidden="true"><span></span></span>
-          <span class="open-button__handle" aria-hidden="true">
+          <span class="open-button__label" data-text="opening.buttonLabel">Abrir convite</span>
+          <span class="open-button__arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M5 12h13M14 7l5 5-5 5" />
             </svg>
@@ -112,7 +108,7 @@
   <main>
     <section class="hero" id="inicio" aria-label="Início do convite">
       <div class="hero__media" aria-hidden="true">
-        <img id="heroImage" src="assets/images/hero.svg" alt="" fetchpriority="high">
+        <img id="heroImage" src="assets/images/hero.jpg" alt="" fetchpriority="high">
         <div class="hero__veil"></div>
       </div>
 
@@ -182,7 +178,7 @@
     <section class="story section" id="historia">
       <div class="container story__grid">
         <div class="story__media reveal" data-speed="0.08" id="hist">
-          <img id="storyImage" src="assets/images/story.svg" alt="Foto do casal" loading="lazy">
+          <img id="storyImage" src="assets/images/story.jpg" alt="Foto do casal" loading="lazy">
           <span class="story__year" data-text="story.year"></span>
           <span class="story__caption" data-text="story.imageCaption"></span>
         </div>
@@ -203,7 +199,7 @@
 
     <section class="date-break" aria-label="Data do casamento">
       <div class="date-break__media" aria-hidden="true">
-        <img id="dateBreakImage" src="assets/images/date-break.svg" alt="" loading="lazy">
+        <img id="dateBreakImage" src="assets/images/date-break.jpg" alt="" loading="lazy">
       </div>
       <div class="date-break__overlay" id="breakImage-roll"></div>
       <div class="date-break__content reveal">
@@ -290,7 +286,7 @@
           <div class="palette reveal" id="dressPalette" aria-label="Sugestão de paleta"></div>
         </div>
         <div class="dress__media reveal">
-          <img id="dressImage" src="assets/images/dress-code.svg" alt="Referência visual para o dress code"
+          <img id="dressImage" src="assets/images/dress-code.jpg" alt="Referência visual para o dress code"
             loading="lazy">
           <span class="dress__stamp">DRESS<br>CODE</span>
         </div>
@@ -344,7 +340,7 @@
 
     <section class="rsvp section" id="rsvp">
       <div class="rsvp__side rsvp__side--photo" aria-hidden="true">
-        <img id="rsvpImage" src="assets/images/rsvp.svg" alt="" loading="lazy">
+        <img id="rsvpImage" src="assets/images/rsvp.jpg" alt="" loading="lazy">
       </div>
       <div class="rsvp__side rsvp__side--form">
         <div class="rsvp__form-wrap reveal">
@@ -424,9 +420,12 @@
       aria-label="Próxima foto">→</button>
   </div>
 
-  <button class="music-button" id="musicButton" type="button" aria-label="Reproduzir música" hidden>
-    <span class="music-button__bars" aria-hidden="true"><i></i><i></i><i></i></span>
-    <span class="music-button__label">Música</span>
+  <button class="music-button" id="musicButton" type="button" aria-label="Tocar música" aria-pressed="false" hidden>
+    <span class="music-button__icon" aria-hidden="true">
+      <svg class="music-button__play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+      <svg class="music-button__pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" /></svg>
+    </span>
+    <span class="music-button__label">Tocar música</span>
   </button>
   <audio id="backgroundMusic" preload="none"></audio>
 

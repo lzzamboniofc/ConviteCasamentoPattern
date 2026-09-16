@@ -294,24 +294,26 @@ New Icon Script é comercial e não acompanha o ZIP. O projeto já possui um `@f
 
 ## Abertura interativa (V6)
 
-A tela inicial agora possui uma abertura diferente por dispositivo:
+A tela inicial usa o mesmo botão `Abrir convite` no mobile, tablet e desktop. Ao clicar, a fotografia do hero é revelada com a mesma transição cinematográfica já usada pelo template. O gesto de arrastar foi removido para deixar a entrada mais direta.
 
-- **mobile/touch (ate 820px):** o convidado arrasta o controle para a direita; a foto do hero e revelada progressivamente a partir do centro;
-- **tablet/desktop:** permanece o clique em `Abrir convite`, mas com a mesma transicao fotografica;
-- os nomes e dados continuam vindo normalmente do `config.js` e nao foram alterados pela implementacao.
-
-Configuracao:
+Se a música estiver habilitada e `music.playOnOpen` estiver como `true`, o mesmo clique que abre o convite também inicia a reprodução do áudio. Isso aproveita o gesto explícito do usuário e funciona melhor com as políticas de autoplay de navegadores mobile.
 
 ```js
 opening: {
-  // ...
-  mobileDragLabel: "Deslize para abrir",
-  dragToOpenOnMobile: true,
-  dragThreshold: 0.68
+  enabled: true,
+  buttonLabel: "Abrir convite"
+},
+
+music: {
+  enabled: true,
+  file: "assets/audio/musica.mp3",
+  playOnOpen: true,
+  labelPlay: "Tocar música",
+  labelPause: "Pausar música"
 }
 ```
 
-`dragThreshold` define quanto do gesto precisa ser concluido antes de a abertura terminar automaticamente. Ex.: `0.68` = 68%.
+O botão flutuante de música mostra **play** quando o áudio está parado/pausado e **pause** enquanto está tocando.
 
 
 ## Navegação flutuante e cores sobre fotos

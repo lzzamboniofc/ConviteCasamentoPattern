@@ -86,6 +86,42 @@
   ];
   imageBindings.forEach(([selector, src]) => { if (src && $(selector)) $(selector).src = src; });
 
+  // MUSIC STATE ---------------------------------------------
+  // A fonte do áudio é configurada antes da abertura para que o clique
+  // em "Abrir convite" possa iniciar a música no mesmo gesto do usuário.
+  const musicButton = $("#musicButton");
+  const audio = $("#backgroundMusic");
+
+  const syncMusicButton = () => {
+    if (!musicButton || !audio) return;
+    const isPlaying = !audio.paused && !audio.ended;
+    musicButton.classList.toggle("is-playing", isPlaying);
+    musicButton.setAttribute("aria-pressed", String(isPlaying));
+    musicButton.setAttribute("aria-label", isPlaying ? (cfg.music?.labelPause || "Pausar música") : (cfg.music?.labelPlay || "Tocar música"));
+    const label = $(".music-button__label", musicButton);
+    if (label) label.textContent = isPlaying ? (cfg.music?.labelPause || "Pausar música") : (cfg.music?.labelPlay || "Tocar música");
+  };
+
+  const tryStartMusic = async () => {
+    if (!cfg.music?.enabled || !cfg.music?.file || !audio) return false;
+    if (!audio.src) audio.src = cfg.music.file;
+    try {
+      await audio.play();
+      syncMusicButton();
+      return true;
+    } catch (_) {
+      syncMusicButton();
+      console.warn("Não foi possível reproduzir o áudio. Verifique o arquivo configurado ou as permissões do navegador.");
+      return false;
+    }
+  };
+
+  if (cfg.music?.enabled && cfg.music?.file && musicButton && audio) {
+    musicButton.hidden = false;
+    audio.src = cfg.music.file;
+    syncMusicButton();
+  }
+
   // PERSONALIZED OPENING ------------------------------------
   const opening = $("#opening");
   const openButton = $("#openInvitation");
@@ -102,17 +138,12 @@
 
   const setOpeningProgress = (value) => {
     const progress = Math.max(0, Math.min(1, value));
-    const percent = progress * 100;
     const inset = (1 - progress) * 50;
     const imageScale = 1.075 - (progress * .035);
-    const handleTravel = openButton ? Math.max(0, openButton.clientWidth - 60) : 0;
 
     opening?.style.setProperty("--opening-progress", progress.toFixed(4));
     opening?.style.setProperty("--opening-inset", `${inset.toFixed(3)}%`);
     opening?.style.setProperty("--opening-image-scale", imageScale.toFixed(4));
-    openButton?.style.setProperty("--drag-progress", progress.toFixed(4));
-    openButton?.style.setProperty("--drag-percent", `${percent.toFixed(2)}%`);
-    openButton?.style.setProperty("--drag-handle-x", `${(progress * handleTravel).toFixed(2)}px`);
     // Só troca para a paleta sobre foto quando a imagem realmente começa a aparecer.
     opening?.classList.toggle("has-photo-text", progress >= 0.28);
   };
@@ -127,8 +158,12 @@
   const playOpening = () => {
     if (!opening || openingDone) return;
     openingDone = true;
+
+    // Inicia a música no mesmo clique que abre o convite. Isso mantém
+    // compatibilidade com a política de autoplay de iOS/Android.
+    if (cfg.music?.playOnOpen !== false) void tryStartMusic();
+
     setOpeningProgress(1);
-    opening.classList.remove("is-resetting", "is-dragging");
     opening.classList.add("is-opening");
     document.body.classList.add("hero-is-entering");
     window.setTimeout(() => document.body.classList.remove("hero-is-entering"), 1250);
@@ -140,75 +175,7 @@
     document.body.classList.remove("is-locked");
   } else if (opening && openButton) {
     setOpeningProgress(0);
-
-    const coarsePointer = window.matchMedia("(pointer: coarse)");
-    const mobileWidth = window.matchMedia("(max-width: 820px)");
-    const dragEnabled = () => cfg.opening?.dragToOpenOnMobile !== false && coarsePointer.matches && mobileWidth.matches;
-    const threshold = Math.max(.45, Math.min(.9, Number(cfg.opening?.dragThreshold) || .68));
-
-    let dragging = false;
-    let pointerId = null;
-    let startX = 0;
-    let progress = 0;
-    let moved = false;
-
-    const resetDrag = () => {
-      if (openingDone) return;
-      dragging = false;
-      pointerId = null;
-      opening.classList.remove("is-dragging");
-      opening.classList.add("is-resetting");
-      setOpeningProgress(0);
-      progress = 0;
-      window.setTimeout(() => opening.classList.remove("is-resetting"), 420);
-    };
-
-    openButton.addEventListener("pointerdown", (event) => {
-      if (!dragEnabled() || openingDone) return;
-      dragging = true;
-      moved = false;
-      pointerId = event.pointerId;
-      startX = event.clientX;
-      opening.classList.remove("is-resetting");
-      opening.classList.add("is-dragging");
-      openButton.setPointerCapture?.(pointerId);
-      event.preventDefault();
-    });
-
-    openButton.addEventListener("pointermove", (event) => {
-      if (!dragging || event.pointerId !== pointerId || openingDone) return;
-      const rect = openButton.getBoundingClientRect();
-      const travel = Math.max(120, rect.width - 72);
-      const delta = Math.max(0, event.clientX - startX);
-      progress = Math.max(0, Math.min(1, delta / travel));
-      if (delta > 5) moved = true;
-      setOpeningProgress(progress);
-      if (progress >= threshold) playOpening();
-      event.preventDefault();
-    });
-
-    const endDrag = (event) => {
-      if (!dragging || openingDone) return;
-      if (event?.pointerId != null && event.pointerId !== pointerId) return;
-      if (progress >= threshold) playOpening();
-      else resetDrag();
-    };
-
-    openButton.addEventListener("pointerup", endDrag);
-    openButton.addEventListener("pointercancel", endDrag);
-    openButton.addEventListener("lostpointercapture", () => { if (dragging && !openingDone) resetDrag(); });
-
-    openButton.addEventListener("click", (event) => {
-      if (openingDone) return;
-      if (dragEnabled()) {
-        event.preventDefault();
-        // Em telas touch o gesto horizontal é a interação principal.
-        // Um toque simples não dispara a transição por engano.
-        if (moved) moved = false;
-        return;
-      }
-      playOpening();
-    });
+    openButton.addEventListener("click", playOpening);
   }
 
   // MARQUEE --------------------------------------------------
@@ -486,25 +453,22 @@
   });
 
   // MUSIC ----------------------------------------------------
-  const musicButton = $("#musicButton");
-  const audio = $("#backgroundMusic");
   if (cfg.music?.enabled && cfg.music?.file && musicButton && audio) {
-    musicButton.hidden = false;
-    audio.src = cfg.music.file;
     musicButton.addEventListener("click", async () => {
-      try {
-        if (audio.paused) {
-          await audio.play();
-          musicButton.classList.add("is-playing");
-          $(".music-button__label", musicButton).textContent = cfg.music.labelPause || "Pausar";
-        } else {
-          audio.pause();
-          musicButton.classList.remove("is-playing");
-          $(".music-button__label", musicButton).textContent = cfg.music.labelPlay || "Música";
-        }
-      } catch (_) {
-        console.warn("Não foi possível reproduzir o áudio. Verifique o arquivo configurado.");
+      if (audio.paused || audio.ended) {
+        await tryStartMusic();
+      } else {
+        audio.pause();
       }
+      syncMusicButton();
+    });
+
+    audio.addEventListener("play", syncMusicButton);
+    audio.addEventListener("pause", syncMusicButton);
+    audio.addEventListener("ended", syncMusicButton);
+    audio.addEventListener("error", () => {
+      syncMusicButton();
+      console.warn("Arquivo de música indisponível:", cfg.music.file);
     });
   }
 

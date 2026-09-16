@@ -37,23 +37,6 @@
   .story__copy .display-title{font-size:clamp(72px,6vw,98px)}
 }
 
-/* A partir do tablet/desktop a abertura continua por clique.
-   O gesto de arrastar e exclusivo da experiencia touch/mobile. */
-@media (min-width:821px){
-  .opening{touch-action:auto}
-  .open-button{
-    width:220px;
-    min-height:56px;
-    padding:0 18px;
-    border:1px solid var(--ink);
-    background:var(--ink);
-    color:var(--paper);
-    touch-action:auto;
-  }
-  .open-button::before,.open-button__track,.open-button__handle{display:none}
-  .open-button__label--mobile{display:none}
-  .open-button__label--desktop{display:inline-flex}
-}
 
 @media (min-width:821px){
   .floating-nav{left:50%;right:auto;width:auto;min-width:580px;transform:translate(-50%,-10px);grid-template-columns:repeat(5,auto);gap:2px;padding:6px 8px}

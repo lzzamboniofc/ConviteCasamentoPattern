@@ -1543,35 +1543,40 @@ a {
   display: none
 }
 
-.music-button__bars {
-  display: flex;
-  align-items: flex-end;
-  gap: 2px;
-  height: 13px
+.music-button__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
 }
 
-.music-button__bars i {
-  width: 2px;
-  height: 6px;
-  background: currentColor
+.music-button__icon svg {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: opacity .18s ease, transform .18s ease;
 }
 
-.music-button.is-playing .music-button__bars i {
-  animation: bars .8s ease-in-out infinite alternate
+.music-button__play {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.music-button.is-playing .music-button__bars i:nth-child(2) {
-  animation-delay: .15s
+.music-button__pause {
+  opacity: 0;
+  transform: scale(.72);
 }
 
-.music-button.is-playing .music-button__bars i:nth-child(3) {
-  animation-delay: .3s
+.music-button.is-playing .music-button__play {
+  opacity: 0;
+  transform: scale(.72);
 }
 
-@keyframes bars {
-  to {
-    height: 13px
-  }
+.music-button.is-playing .music-button__pause {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .music-button__label {
@@ -1849,10 +1854,6 @@ a {
   background: var(--photo-opening-text)
 }
 
-.opening.is-dragging .opening__inner {
-  text-shadow: 0 1px 18px rgba(255, 255, 255, .24);
-}
-
 .opening.is-opening .opening__inner {
   opacity: 0;
   transform: scale(.985);
@@ -1874,101 +1875,61 @@ a {
   transition: transform 1.3s var(--ease);
 }
 
-.opening.is-resetting .opening__reveal {
-  transition: clip-path .38s var(--ease);
-}
-
-.opening.is-resetting .opening__reveal img {
-  transition: transform .38s var(--ease);
-}
-
 .open-button {
-  --drag-progress: 0;
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  min-height: 62px;
-  padding: 0 62px 0 18px;
-  border-color: var(--ink);
-  background: transparent;
-  color: var(--ink);
-  user-select: none;
-  touch-action: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: min(100%, 280px);
+  min-height: 58px;
+  padding: 0 18px 0 22px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-hero-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .24s var(--ease), background-color .24s var(--ease), color .24s var(--ease);
 }
 
-.open-button::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  width: var(--drag-percent, 0%);
-  background: var(--ink);
-  opacity: .09;
+.open-button:active {
+  transform: scale(.975);
 }
 
 .open-button__label {
-  position: relative;
-  z-index: 2;
-  pointer-events: none
-}
-
-.open-button__label--desktop {
-  display: none
-}
-
-.open-button__label--mobile {
-  display: inline-flex
-}
-
-.open-button__track {
-  position: absolute;
-  right: 58px;
-  left: 18px;
-  bottom: 10px;
-  height: 1px;
-  overflow: hidden;
-  background: var(--line);
   pointer-events: none;
 }
 
-.open-button__track span {
-  display: block;
-  width: var(--drag-percent, 0%);
-  height: 100%;
-  background: currentColor;
-}
-
-.open-button__handle {
-  position: absolute;
-  z-index: 3;
-  right: auto;
-  left: calc(8px + var(--drag-handle-x, 0px));
-  top: 50%;
+.open-button__arrow {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  background: var(--paper);
-  transform: translateY(-50%);
-  box-shadow: 0 8px 24px rgba(20, 20, 18, .08);
+  width: 34px;
+  height: 34px;
+  border: 1px solid color-mix(in srgb, currentColor 42%, transparent);
+  border-radius: 50%;
   pointer-events: none;
-  will-change: left;
+  transition: transform .28s var(--ease);
 }
 
-.open-button__handle svg {
-  width: 16px
+.open-button__arrow svg {
+  width: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.opening.is-dragging .open-button__handle {
-  transform: translateY(-50%) scale(.96)
+.open-button:hover .open-button__arrow {
+  transform: translateX(3px);
 }
 
-.opening.is-resetting .open-button__handle,
-.opening.is-resetting .open-button__track span,
-.opening.is-resetting .open-button::before {
-  transition: left .38s var(--ease), width .38s var(--ease);
+.opening.is-opening .open-button {
+  pointer-events: none;
 }
 
 body.hero-is-entering .hero__media img {
@@ -1990,9 +1951,8 @@ body.hero-is-entering .hero__media img {
   .opening__reveal,
   .opening__reveal img,
   .opening__inner,
-  .open-button__handle,
-  .open-button__track span,
-  .open-button::before {
+  .open-button,
+  .open-button__arrow {
     transition: none !important
   }
 

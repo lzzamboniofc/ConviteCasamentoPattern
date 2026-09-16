@@ -270,13 +270,14 @@ window.WEDDING_CONFIG = {
     - heroFontPreset: tipografia exclusiva da abertura + primeira tela (hero).
     - fontPreset: tipografia usada no restante do convite e na lista de presentes.
   */
-  themePreset: "vividPurple",
+  themePreset: "sage",
   heroFontPreset: "formalClassic",
   fontPreset: "poppins",
 
   /* Sobrescritas opcionais: deixe vazio para usar 100% do preset. */
   theme: {
-    /* Exemplo de sobrescrita: accent: "#6B7A5A" */
+    /* Exemplo de sobrescrita: accent: "#87927A" */
+    
   },
 
   /*
@@ -316,9 +317,7 @@ window.WEDDING_CONFIG = {
     showOncePerSession: false,
     eyebrow: "Você recebeu um convite especial",
     buttonLabel: "Abrir convite",
-    mobileDragLabel: "Deslize para abrir",
-    dragToOpenOnMobile: true,
-    dragThreshold: 0.68,
+    // A abertura agora é acionada por botão em todas as telas.
     hint: "Uma celebração feita para compartilhar com quem amamos.",
     guestQueryParam: "convidado",
     guestPrefix: "Preparamos este convite para"
@@ -454,8 +453,9 @@ window.WEDDING_CONFIG = {
   music: {
     enabled: true,
     file: "assets/audio/musica.mp3",
-    labelPlay: "Música",
-    labelPause: "Pausar"
+    playOnOpen: true,
+    labelPlay: "Tocar música",
+    labelPause: "Pausar música"
   },
 
   images: {
